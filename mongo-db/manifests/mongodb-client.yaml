@@ -1,0 +1,29 @@
+# Client can be used to query mongodb within K8s cluster
+# Once deployed, execute 'kubectl exec deployment/mongo-client -it -- /bin/bash' to log into it and use mongo shell
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mongo-client
+  name: mongo-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-client
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mongo-client
+    spec:
+      containers:
+      - image: mongo
+        name: mongo-client
+        env:
+        - name: mongo-client_INITDB_ROOT_USERNAME
+          value: 'dummy'
+        - name: mongo-client_INITDB_ROOT_PASSWORD
+          value: 'dummy'

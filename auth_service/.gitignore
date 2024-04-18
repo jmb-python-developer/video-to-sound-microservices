@@ -1,0 +1,11 @@
+# PyCharm files
+.idea/
+
+# pipenv
+Pipfile.lock
+
+# pipenv ENV variables file
+.env/
+
+# pipenv caching files
+__pycache__/
